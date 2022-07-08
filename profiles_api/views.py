@@ -1,12 +1,12 @@
+from rest_framework import status, viewsets, filters
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
-from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
 
 from profiles_api import serializers
 from profiles_api import models
 from profiles_api import permissions
+
 class HelloAPIView(APIView):
     """Test API View"""
     serializer_class = serializers.HelloSerializer
@@ -103,3 +103,6 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 
     authentication_classes = (TokenAuthentication, ) # the ending comma lets Python create a tuple instead of a single parameter
     permission_classes = (permissions.UpdateOwnProfile, )
+
+    filter_backends = (filters.SearchFilter, )
+    search_fields = ('name', 'email', )
