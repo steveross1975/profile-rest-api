@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 
 set -e
-
+echo "first line"
 # TODO: Set to URL of git repo.
 PROJECT_GIT_URL='https://github.com/steveross1975/profile-rest-api.git'
-
+echo "second line"
 PROJECT_BASE_PATH='/usr/local/apps'
 VIRTUALENV_BASE_PATH='/usr/local/virtualenvs'
 
+echo "after directory setting"
 # Set Ubuntu Language
 locale-gen en_GB.UTF-8
 
+echo "after locale-gen"
 # Install Python, SQLite and pip
 echo "Installing dependencies..."
 apt-get update
